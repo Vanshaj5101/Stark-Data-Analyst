@@ -219,7 +219,7 @@ Slack Link Check - We’ll send HTTP POST requests to this URL when events occur
 
 This will now allow your code running on your local machine to interact with Slack APIs.
 
-<img width="809" alt="image" src="https://github.com/user-attachments/assets/b749142f-53a0-44e9-b63a-9323d38e5e2c">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/b749142f-53a0-44e9-b63a-9323d38e5e2c">
 
 
 ## 5. Testing Bot in Slack
