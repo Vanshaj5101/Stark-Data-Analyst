@@ -103,4 +103,25 @@ Follow these steps to configure the Slack app:
    - Scope: connections:write
 5. Click Generate to create the Web Token.
 6. Copy the generated token and update your .env file:
-```WEB_TOKEN=<your-web-token>```
+```
+WEB_TOKEN=<your-web-token>
+```
+### Step 5: Get Slack Bot User Id
+1. Run **FetchUserId.py** file
+   ```
+   python3 FetchUserId.py
+   ```
+2. Response will look like: we need **user_id**
+   ```
+      {
+        "ok": true,
+        "url": "https://your-workspace.slack.com/",
+        "team": "Your Team",
+        "user": "your-slack-bot-user-id",
+        "user_id": "your-slack-bot-user-id"
+      }
+   ```
+3. Update .env file
+   ```
+   SLACK_BOT_USER_ID=<your-slack-bot-user-id>
+   ```
