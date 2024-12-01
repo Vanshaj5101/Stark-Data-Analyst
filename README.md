@@ -66,7 +66,7 @@ pip install -r requirements.txt
 ```
 
 
-## Slack Setup
+## 2. Slack Setup
 
 Follow these steps to configure the Slack app:
 
@@ -125,3 +125,27 @@ WEB_TOKEN=<your-web-token>
    ```
    SLACK_BOT_USER_ID=<your-slack-bot-user-id>
    ```
+
+
+## 3. Open AI API Configuration
+
+### Step 1: Sign Up or Log In
+1. Visit [OpenAI's official website](https://platform.openai.com/).
+2. If you don't have an account, click on "Sign up" to create one. If you already have an account, simply log in.
+
+### Step 2: Navigate to the API Keys Section
+1. Once logged in, go to the [API Keys page](https://platform.openai.com/account/api-keys).
+2. If you're using OpenAI for the first time, you may need to create an organization (follow the prompts on the site).
+
+### Step 3: Generate the API Key
+1. On the API Keys page, click on the button **Create new secret key**.
+2. This will generate a new API key.
+3. Copy the generated API key and keep it secure (you will not be able to view the key again once you close this window).
+
+### Step 4: Update `.env` File
+1. Open your `.env` file in the project directory.
+2. Add the OpenAI API key:
+   ```env
+   OPEN_AI_API_KEY=<your-openai-api-key>
+   ```
+
