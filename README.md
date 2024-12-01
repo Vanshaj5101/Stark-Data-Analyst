@@ -37,15 +37,20 @@ cd Stark-Data-Analyst
 The repository contains the following key files:
 
 **Quart_app.py**: The main Python file that holds the Quart application to manage Slack events.
+
 **slack_bot_handler.py**: Contains all the bot logic. Events received by Quart_app.py are processed here to interpret user requirements and provide outputs.
+
 **FetchUserId.py**: A utility script to fetch the Slack bot's user ID.
+
 **requirements.txt**: Lists all dependencies for the project.
+
 **data.csv**:A dummy dataset for testing the bot's data analysis functionality.
 
 After cloning the repo, first configure environment variables and virtual environment
 
 #### -- Configure Environment Variables
 Create a .env file in the project directory with the following structure: 
+
 (we will look into steps to get values for all the environment variables, for now have this structure copied and pasted as .env file)
 ```
 SLACK_BOT_TOKEN=<your-slack-bot-token>
@@ -148,4 +153,73 @@ WEB_TOKEN=<your-web-token>
    ```env
    OPEN_AI_API_KEY=<your-openai-api-key>
    ```
+## 4. Hosting and Testing
+
+In order to have your user interact with your slack bot, you need to host your python program as a server. 
+
+Now for testing, we can have local server, but while in production we need authorized server like server running on AWS cloud services.
+
+For Hosting, there are two important steps:
+
+1. Exposing your code server to communicate with Slack
+     a. Local Hosting
+     b. Hosting on AWS
+2. Configuring Slack Bot to listen all the app mentions
+
+### Local Hosting:
+
+#### Test the Slackbot Locally with ngrok
+
+Once you've set up the code, the next step is to test your Slackbot locally. We'll use **ngrok** to expose your local server to the public, so that Slack can send events to your local machine.
+
+### Step 1: Install ngrok
+
+If you don't have **ngrok** installed yet, follow these steps:
+
+1. Go to [ngrok's website](https://ngrok.com/).
+2. Sign up for a free account.
+3. Download and install ngrok for your operating system.
+4. After installing, authenticate ngrok using the following command:
+   ```bash
+   ngrok authtoken <your-ngrok-auth-token>
+   ```
+   
+### Step 2: Run your local server
+
+In your project directory, run the Quart application:
+
+```
+python3 Quart_app.py
+```
+By default, your local server will be running on http://127.0.0.1:3081. You can change the port in your code if needed.
+
+### Step 3: Expose your local server using ngrok
+
+Open a new terminal window and run the following command to expose your local server to the public:
+```
+ngrok http 3081
+```
+ngrok will give you a **forwarding link** like the one in example:
+```
+Forwarding                    https://07de-129-219-8-84.ngrok-free.app -> http://localhost:3081
+```
+Copy this link and reach out to https://api.slack.com/apps
+
+In the Slack app interface, reach out to the Slack Bot you created:
+1. Under Event Subscription menu from the left hand side menu
+2. Toggle the Event Subscription button to "On" state
+3. Add the forwarding link provided by ngrok with "/slack/events" as suffix to it
+   ```
+   <your-ngrok-link>/slack/events
+   ```
+4. Under Subscribe to Bot events, subscribe your bot to listen "app_mention"
+5. Adding the public link to **_Request URL_** part will trigger a challenge event by Slack to verify the link.
+_Slack Link Check - We’ll send HTTP POST requests to this URL when events occur. As soon as you enter a URL, we’ll send a request with a challenge parameter, and your endpoint must respond with the challenge value. _ 
+
+<img width="809" alt="image" src="https://github.com/user-attachments/assets/b749142f-53a0-44e9-b63a-9323d38e5e2c">
+
+
+
+
+
 
