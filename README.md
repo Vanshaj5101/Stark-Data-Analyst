@@ -23,7 +23,7 @@ To integrate the slack bot, there are 4 important components:
 4. Hosting & Testing
 
 
-### 1. Python Environment and Code Setup
+##1. Python Environment and Code Setup
 
 #### -- Clone the Repository
 
