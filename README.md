@@ -65,3 +65,42 @@ Install required dependencies:
 pip install -r requirements.txt
 ```
 
+
+## Slack Setup
+
+Follow these steps to configure the Slack app:
+
+### Step 1: Create a Slack App
+1. Visit [Slack API Apps](https://api.slack.com/apps).
+2. Click **"Create New App"**.
+3. Select the **"From scratch"** option.
+4. Provide an **App Name** and select your Slack workspace.
+5. Click **Create App**.
+
+### Step 2: Add Required Permissions
+1. Navigate to the **OAuth & Permissions** section in the left-hand menu.
+2. Under **Scopes**, add the following bot token scopes:
+   - `app_mentions:read`
+   - `channels:history`
+   - `chat:write`
+   - `chat:write.public`
+   - `files:read`
+   - `incoming-webhook`
+
+### Step 3: Install the App
+1. Go to the **Install App** section in the left-hand menu.
+2. Click **Install App to Workspace**.
+3. Copy the **OAuth Token** from the app after installation and update your `.env` file:
+   ```env
+   SLACK_BOT_TOKEN=<your-slack-bot-token>
+
+### Step 4: Get Web Token
+1. Go to the **Basic Information** section in the left-hand menu.
+2. Scroll down to **App-Level Tokens** section.
+3. Click **Generate Token**
+4. Enter following details:
+   - Token Name: WebToken
+   - Scope: connections:write
+5. Click Generate to create the Web Token.
+6. Copy the generated token and update your .env file:
+`WEB_TOKEN=<your-web-token>`
