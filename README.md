@@ -25,7 +25,7 @@ To integrate the slack bot, there are 4 important components:
 
 ### 1. Python Environment and Code Setup
 
-#### Clone the Repository
+#### -- Clone the Repository
 
 Begin by cloning the repository from GitHub:
 
@@ -44,8 +44,9 @@ The repository contains the following key files:
 
 After cloning the repo, first configure environment variables and virtual environment
 
-#### Configure Environment Variables
-Create a .env file in the project directory with the following structure:
+#### -- Configure Environment Variables
+Create a .env file in the project directory with the following structure: 
+(we will look into steps to get values for all the environment variables, for now have this structure copied and pasted as .env file)
 ```
 SLACK_BOT_TOKEN=<your-slack-bot-token>
 SLACK_BOT_USER_ID=<your-slack-bot-user-id>
@@ -53,4 +54,14 @@ OPEN_AI_API_KEY=<your-openai-api-key>
 WEB_TOKEN=<your-web-token>
 ```
 
+#### -- Setup Python Virtual Environment
+
+```
+python3 -m venv .venv
+source .venv/bin/activate
+```
+Install required dependencies:
+```
+pip install -r requirements.txt
+```
 
