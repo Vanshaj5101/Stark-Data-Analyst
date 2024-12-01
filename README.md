@@ -214,7 +214,8 @@ In the Slack app interface, reach out to the Slack Bot you created:
    ```
 4. Under Subscribe to Bot events, subscribe your bot to listen "app_mention"
 5. Adding the public link to **_Request URL_** part will trigger a challenge event by Slack to verify the link.
-_Slack Link Check - We’ll send HTTP POST requests to this URL when events occur. As soon as you enter a URL, we’ll send a request with a challenge parameter, and your endpoint must respond with the challenge value. _ 
+
+Slack Link Check - We’ll send HTTP POST requests to this URL when events occur. As soon as you enter a URL, we’ll send a request with a challenge parameter, and your endpoint must respond with the challenge value. 
 
 <img width="809" alt="image" src="https://github.com/user-attachments/assets/b749142f-53a0-44e9-b63a-9323d38e5e2c">
 
