@@ -103,4 +103,4 @@ Follow these steps to configure the Slack app:
    - Scope: connections:write
 5. Click Generate to create the Web Token.
 6. Copy the generated token and update your .env file:
-`WEB_TOKEN=<your-web-token>`
+```WEB_TOKEN=<your-web-token>```
